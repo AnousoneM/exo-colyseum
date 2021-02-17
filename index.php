@@ -125,6 +125,76 @@ require_once 'controllers/index-controller.php'
         </table>
     </div>
 
+    <hr>
+
+    <div class="row justify-content-center">
+        <table class="table table-striped table-dark col-4">
+            <thead>
+                <tr>
+                    <th scope="col">NOM</th>
+                    <th scope="col">Prénom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // je fais un foreach pour parcourir mon tableau
+                foreach ($clientsStartWithArray as $client) { ?>
+                    <tr>
+                        <td><?= $client['lastName'] ?></td>
+                        <td><?= $client['firstname'] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="row justify-content-center">
+        <table class="table table-striped table-dark col-4">
+            <thead>
+                <tr>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Acteur</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Heure de représentation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // je fais un foreach pour parcourir mon tableau
+                foreach ($showsArray as $show) { ?>
+                    <tr>
+                        <td><?= $show['title'] ?></td>
+                        <td><?= $show['performer'] ?></td>
+                        <td><?= $show['date'] ?></td>
+                        <td><?= $show['startTime'] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="row justify-content-center">
+        <?php foreach ($clientsDetailsArray as $client) { ?>
+            <div class="card col-12">
+                <div class="card-body">
+                    <ul>
+                        <li>Nom : <?= $client['lastName'] ?></li>
+                        <li>Prénom : <?= $client['firstName'] ?></li>
+                        <li>Date de naissance : <?= $client['birthDate'] ?></li>
+                        <li>Carte de fidélité : <?= $client['card'] == 1 ? 'oui' : 'non' ?></li>
+                        <?php if ($client['card'] == 1) { ?>
+                            <li>Numéro de la carte : <?= $client['cardNumber'] ?></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
